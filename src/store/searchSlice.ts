@@ -20,10 +20,11 @@ export const searchSlice = createSlice({
     setSearchValue : (state, action:PayloadAction<{ value:string }>) => { 
         state.searchValue = action.payload.value
     },
+    clearSearch : (state) => {state.searchValue = ''},
   }
 })
 
-export const { setIsSearching, setSearchValue } = searchSlice.actions
+export const { setIsSearching, setSearchValue, clearSearch } = searchSlice.actions
 
 export const selectSearch = (state: RootState) => state.searchSlice
 
