@@ -8,7 +8,7 @@ export const MovieCard = ({movie}:{movie:any}) => {
     
     return (
         <div className='w-[200px]' onClick={handleClickToDetail}>
-            <div className='relative w-[200px] h-[300px] bg-gray-500'>
+            <div className='relative w-[200px] h-[300px] mb-2 bg-gray-500 shadow-lg shadow-black'>
                 { movie.primaryImage && <Image sizes='100%' src={movie.primaryImage.url} alt='' fill style={{ objectFit:'cover' }} />}
             </div>
             <p className='font-bold text-white'>{movie.titleText?.text}</p>
