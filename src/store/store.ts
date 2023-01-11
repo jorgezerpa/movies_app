@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { filterSlice } from './filtersSlice'
+import { searchSlice } from './searchSlice'
 import { moviesApi } from 'services/MoviesDatabase/Movies'
 import { actorsApi } from 'services/MoviesDatabase/actors'
 import { filtersApi } from 'services/MoviesDatabase/filters'
@@ -8,6 +9,7 @@ import { searchApi } from 'services/MoviesDatabase/search'
 export const store = configureStore({
   reducer: {
     [filterSlice.name]:filterSlice.reducer,
+    [searchSlice.name]:searchSlice.reducer,
     [moviesApi.reducerPath]: moviesApi.reducer,
     [actorsApi.reducerPath]: actorsApi.reducer,
     [filtersApi.reducerPath]: filtersApi.reducer,

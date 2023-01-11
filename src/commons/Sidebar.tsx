@@ -3,7 +3,7 @@ import { BiCategoryAlt } from 'react-icons/bi'
 import { TbMovieOff } from 'react-icons/tb'
 import { BsListStars } from 'react-icons/bs'
 import { useRouter } from 'next/router'
-import { BaseInput } from 'components/form'
+import { SearchBar } from 'components/SearchBar'
 import { useGetTitleTypesQuery, useGetGenresQuery, useGetListsQuery  } from 'services/MoviesDatabase/filters'
     //filters
 import { filterbyGenre, filterbyTitleType, filterbyList, clearFilters } from '../store/filtersSlice'
@@ -35,7 +35,7 @@ const Sidebar = () => {
             </div>
             <ul>
                 <li className='px-2 mb-4'>
-                    <BaseInput name='search' type='text' placeholder='search' />
+                    <SearchBar name='search' type='text' placeholder='search' />
                 </li>
                
                 <div onClick={()=>dispatch(clearFilters()) } className='text-white text-right w-full px-2'> clear Filters </div>

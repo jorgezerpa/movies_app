@@ -12,7 +12,7 @@ export const searchApi = createApi({
         },
     }),
     endpoints: (build) => ({
-        search: build.query<any, string>({query:(keyword) => ({ url: `/search/keyword/${keyword}` }),}),
+        search: build.query<any, string>({query:(keyword) => ({ url: `/titles/search/keyword/${keyword}` }),}),
     }),
 })
 
