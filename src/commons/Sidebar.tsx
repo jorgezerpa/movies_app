@@ -21,8 +21,29 @@ const Sidebar = () => {
     const { data:dataTypes, isError:isErrorTypes, isLoading:isLoadingTypes, isSuccess:isSuccessTypes } = useGetTitleTypesQuery()
     const { data:dataGenres, isError:isErrorGenres, isLoading:isLoadingGenres, isSuccess:isSuccessGenres } = useGetGenresQuery()
     const { data:dataLists, isError:isErrorLists, isLoading:isLoadingLists, isSuccess:isSuccessLists } = useGetListsQuery()
-    
     const dispatch = useAppDispatch()
+
+    const handleShowFilters = (toOpen:'types'|'genres'|'lists') => {
+        switch (toOpen) {
+            case 'genres':
+                setShowGenres(!showGenres)
+                setShowLists(false)
+                setShowTypes(false)
+                break;
+            case 'lists':
+                setShowGenres(false)
+                setShowLists(!showLists)
+                setShowTypes(false)
+                break;
+            case 'types':
+                setShowGenres(false)
+                setShowLists(false)
+                setShowTypes(!showTypes)        
+            break;
+            default:
+                break;
+        }
+    }
 
     return (
         <div 
@@ -44,7 +65,7 @@ const Sidebar = () => {
 
                     <li className="mb-5">
                         <div>
-                            <div onClick={()=>setShowTypes(!showTypes)} className={`flex gap-1 items-center font-bold text-white text-lg  px-3 mx-2 rounded-xl`}>
+                            <div onClick={()=>handleShowFilters('types')} className={`flex gap-1 items-center font-bold text-white text-lg  px-3 mx-2 rounded-xl`}>
                                 <BiCategoryAlt color='white' size={20} />
                                 <p>types</p>
                             </div>
@@ -58,7 +79,7 @@ const Sidebar = () => {
                     
                     <li className="mb-5">
                         <div>
-                            <div onClick={()=>setShowGenres(!showGenres)} className={`flex gap-1 items-center font-bold text-white text-lg  px-3 mx-2 rounded-xl`}>
+                            <div onClick={()=>handleShowFilters('genres')} className={`flex gap-1 items-center font-bold text-white text-lg  px-3 mx-2 rounded-xl`}>
                                 <TbMovieOff color='white' size={20} />
                                 <p>genres</p>
                             </div>
@@ -72,7 +93,7 @@ const Sidebar = () => {
 
                     <li className="mb-5">
                         <div>
-                            <div onClick={()=>setShowLists(!showLists)} className={`flex gap-1 items-center font-bold text-white text-lg  px-3 mx-2 rounded-xl`}>
+                            <div onClick={()=>handleShowFilters('lists')} className={`flex gap-1 items-center font-bold text-white text-lg  px-3 mx-2 rounded-xl`}>
                                 <BsListStars color='white' size={20} />
                                 <p>lists</p>
                             </div>

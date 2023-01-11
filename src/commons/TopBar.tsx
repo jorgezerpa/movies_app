@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useAppDispatch } from 'hooks/rtkHooks'
-import { logout } from 'store/authSlices/authSlice'
 import { FaUserAlt } from 'react-icons/fa'
 
 const TopBar = () => {
@@ -15,7 +14,7 @@ const TopBar = () => {
                 <FaUserAlt size={22} color='white' />
                 <div className={`absolute top-[100%] right-[50%] ${!showMenu && 'hidden'}`}>
                     <ul className='w-[200px] bg-gray-500 text-white font-bold p-1 rounded-xl shadow-xl shadow-[rgba(0,0,0,.3)]'>
-                        <li className='p-2' onClick={()=>dispatch(logout())}>logout</li>
+                        <li className='p-2'>logout</li>
                     </ul>
                 </div>
             </div>
