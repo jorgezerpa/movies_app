@@ -16,7 +16,9 @@ export const moviesApi = createApi({
         getMovies: build.query<any, filterState>({
             query: (filter)=>({
                  url: '/titles',
-                 params:(!filter.genre && !filter.list && !filter.titleType) ? { list:'most_pop_movies' } : filter 
+                 params:(!filter.genre && !filter.list && !filter.titleType) 
+                    ? { list:'most_pop_movies', sort: 'year.decr', endYear: '2022' } 
+                    : { ...filter, sort: 'year.decr', endYear: '2022' } 
             })
         }),
         getMovie: build.query<any, string>({query:(id) => ({ url: `/titles/${id}`})}),
